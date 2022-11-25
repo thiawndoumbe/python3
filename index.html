@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+​
+    <style>
+        .times{
+            font-weight: 800;
+            font-size: 8rem;
+        }
+​
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <span id="times"></span>
+    </div>
+    
+    <!-- ------------------------------------- -->
+​
+    <div class="container">
+        <span class="times" id="times_2"></span>
+    </div>
+​
+    <script>
+        setInterval(() => {
+            document.getElementById("times").innerText = new Date(); 
+        }, 1000);
+​
+        setInterval(() => {
+            let date = new Date();
+​
+            let time = date.getHours() + " : " +date.getMinutes() + " : " + date.getSeconds();
+            document.getElementById("times_2").innerText = time; 
+        }, 1000);
+        
+    </script>
+</body>
+</html>

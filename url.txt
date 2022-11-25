@@ -1,0 +1,35 @@
+On peut aussi utiliser la bibliothèque urllib en Python pour télécharger et lire des fichiers depuis le web. Il s’agit d’un module de gestion d’URL qui a différentes fonctions pour effectuer la tâche donnée.
+
+Ici aussi, nous devons spécifier l’URL du fichier à télécharger. La méthode urllib.request.urlopen() récupère le chemin du fichier et envoie une requête au serveur sur lequel le fichier est en cours de téléchargement.
+
+Pour télécharger des fichiers, nous pouvons utiliser la fonction urllib.request.urlretrieve(). Il téléchargera la ressource à partir de l’adresse donnée et la stockera dans le répertoire fourni.
+
+Nous téléchargeons l’icône de Facebook en utilisant cette méthode dans l’exemple suivant.
+
+import urllib
+urllib.request.urlretrieve("https://www.facebook.com/favicon.ico", "fb.ico")
+Production:
+
+('fb.ico', <http.client.HTTPMessage at 0x2d2d317a088>)
+La sortie ci-dessus indique que le fichier a été téléchargé avec succès.
+
+Utilisez le module pycurl pour télécharger des fichiers en Python
+Nous pouvons utiliser la gestion des fichiers avec ce module pour télécharger des fichiers depuis Internet. Tout d’abord, nous devons créer un objet fichier pour l’endroit où nous souhaitons télécharger le fichier requis. Ensuite, nous utiliserons la fonction pycurl.Curl() pour créer un objet et lancer la session curl.
+
+La méthode setopt() est utilisée pour définir la valeur de l’URL du fichier. Ensuite, la fonction perform() effectue le processus de transfert de fichier depuis le serveur en envoyant la requête HTTP. Ensuite, nous écrirons les données récupérées dans le fichier à l’aide de l’objet file. Enfin, la méthode close() ferme la session, et nous récupérons notre fichier téléchargé dans le répertoire de travail.
+
+Voir le code ci-dessous.
+
+import pycurl
+
+file_name = 'fb.ico'
+file_src = 'https://www.facebook.com/favicon.ico'
+
+with open(file_name, 'wb') as f:
+    cl = pycurl.Curl()
+    cl.setopt(cl.URL, file_src)
+    cl.setopt(cl.WRITEDATA, f)
+    cl.perform()
+    cl.close()
+Trier La Liste Par Une Autre Liste En Python
+
